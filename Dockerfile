@@ -32,6 +32,7 @@ RUN java -jar $GERRIT_WAR init --batch -d $GERRIT_ROOT
 RUN chown -R ${GERRIT_USER}:${GERRIT_USER} $GERRIT_ROOT
 
 ADD gerrit.config /home/gerrit/gerrit/etc/gerrit.config
+VOLUMN ["/home/gerrit/git"]
 
 USER root
 EXPOSE 8080 28080
