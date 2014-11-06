@@ -50,9 +50,9 @@ RUN chown -R ${GERRIT_USER}:${GERRIT_USER} $GERRIT_ROOT
 RUN mkdir ${GERRIT_HOME}/git
 
 ADD gerrit.config /home/gerrit/gerrit/etc/gerrit.config
-VOLUMN ["/home/gerrit/git"]
 
 USER root
+VOLUMN ["/home/gerrit/git"]
 EXPOSE 8080 28080
 EXPOSE 22 20022
 EXPOSE 29418 29418
