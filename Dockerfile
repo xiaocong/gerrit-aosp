@@ -47,12 +47,11 @@ CMD ["/usr/bin/ls","/home/gerrit"]
 RUN java -jar $GERRIT_WAR init --batch -d $GERRIT_ROOT
 RUN rm $GERRIT_WAR
 RUN chown -R ${GERRIT_USER}:${GERRIT_USER} $GERRIT_ROOT
-RUN mkdir ${GERRIT_HOME}/git
 
 ADD gerrit.config /home/gerrit/gerrit/etc/gerrit.config
 
 USER root
-VOLUMN ["/home/gerrit/git"]
+VOLUMN ["/home/gerrit/gerrit/git"]
 EXPOSE 8080 28080
 EXPOSE 22 20022
 EXPOSE 29418 29418
