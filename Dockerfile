@@ -47,6 +47,7 @@ CMD ["/usr/bin/ls","/home/gerrit"]
 RUN java -jar $GERRIT_WAR init --batch -d $GERRIT_ROOT
 RUN rm $GERRIT_WAR
 RUN chown -R ${GERRIT_USER}:${GERRIT_USER} $GERRIT_ROOT
+RUN mkdir ${GERRIT_HOME}/git
 
 ADD gerrit.config /home/gerrit/gerrit/etc/gerrit.config
 VOLUMN ["/home/gerrit/git"]
